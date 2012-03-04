@@ -1,8 +1,13 @@
 Punch::Application.routes.draw do
+  resources :projects
+
   resource :user_session, :only => [:new, :create, :destroy]
+
   resources :users, :except => [:index]
+
   match '/login' => 'user_sessions#new', :as => :login
   match '/logout' => 'user_sessions#destroy', :as => :logout
+
   root :to => "users#new"
 
   # The priority is based upon order of creation:

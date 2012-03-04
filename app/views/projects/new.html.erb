@@ -1,0 +1,21 @@
+<h1>Let's create something!</h1>
+<%= form_for(@project, :multipart => true) do |f| %>
+	<% if @project.errors.any? %>
+  		<div id="error_explanation">
+    		<h2><%= pluralize(@project.errors.count, "error") %> your project was not saved because:</h2>
+			<ul>
+    			<% @project.errors.full_messages.each do |msg| %>
+      				<li><%= msg %></li>
+    			<% end %>
+    		</ul>
+  		</div>
+	<% end %>
+	<div class="file_field">
+		<%= f.label :preview, 'Choose Preview File' %><br>
+		<%= f.file_field :preview %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "Create!"%>
+	</div>
+<%end%>

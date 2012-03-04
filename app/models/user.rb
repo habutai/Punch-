@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  has_many :projects
+  
   attr_accessible :email, :password, :password_confirmation
 
   authenticates_with_sorcery!
