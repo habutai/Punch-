@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   skip_before_filter :require_login, :only => [:new, :create] 
+  before_filter :require_logged_out, :only => [:new, :create]
   
   #GET /users/
   def new
