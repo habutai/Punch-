@@ -5,10 +5,10 @@ Punch::Application.routes.draw do
 
   resources :users, :except => [:index]
 
-  match '/login' => 'user_sessions#new', :as => :login
+  match '/signup' => 'users#new', :as => :signup
   match '/logout' => 'user_sessions#destroy', :as => :logout
 
-  root :to => "users#new"
+  root :to => "user_sessions#new", :as => :login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

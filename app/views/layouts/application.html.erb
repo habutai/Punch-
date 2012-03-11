@@ -6,13 +6,16 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<%= flash[:notice] %>
-<%= flash[:error]%>
-<% if logged_in? %>
-	<%= link_to "logout", logout_path %>
-<% end %>
-<%= yield %>
-
-</body>
+    <body>
+        <div id="pgcontainer">
+            <div id="pgcontent">
+                <%= flash[:notice] %>
+                <%= flash[:error]%>
+                <% if logged_in? %>
+	                <%= link_to "logout", logout_path %>
+                    <% end %>
+                <%= yield %>
+            </div>
+        </div>
+    </body>
 </html>
